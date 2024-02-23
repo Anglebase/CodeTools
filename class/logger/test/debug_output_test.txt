@@ -1,0 +1,4 @@
+2024-1-23 15:56:34|from [Global][DEBUG]: after redirect output1
+2024-1-23 15:56:34|from [Global][DEBUG]: after redirect output2
+2024-1-23 15:56:34|from [Global][DEBUG]: after redirect output3
+2024-1-23 15:56:34|from [Global][DEBUG]: after redirect output4
