@@ -9,7 +9,8 @@ int main()
     // Basic output (default output is console)
     // They will not cause IO blocking
     logger.debug("debug message");
-    logger.info("info message");
+    logger.info(here("info message"));  // here(...)宏可生成位置信息并插入到输出内容
+                                        // here(...) can generate location information and insert it into output content
     logger.warning("warning message");
     logger.error("error message");
 
