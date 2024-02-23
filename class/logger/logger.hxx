@@ -34,14 +34,6 @@ std::string str(Args... args)
     return oss.str();
 }
 
-template <class... Args>
-std::wstring wstr(Args... args)
-{
-    std::wostringstream woss;
-    (woss << ... << args);
-    return woss.str();
-}
-
 enum LOGGER_LEVEL
 {
     DEBUG_level,

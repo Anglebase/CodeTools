@@ -51,7 +51,6 @@ LOGGER::~LOGGER()
     fclose(this->m_info);
     fclose(this->m_warning);
     fclose(this->m_error);
-    // this_thread::sleep_for(3s);
     this->enable = false;
     this->IO.join();
 }
