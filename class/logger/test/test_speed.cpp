@@ -14,19 +14,29 @@ auto timer(void (*f)())
     return end - start;
 }
 
-// 同步IO
-// Synchronous IO
+// 同步IO(C风格)
+// Synchronous IO(C style)
 void func1()
 {
     for (int i = 0; i < 20000; i++)
     {
-        cout << "_SynOut:" << i << endl;
+        printf("CSynOut:%d\n", i);
+    }
+}
+
+// 同步IO(C++风格)
+// Synchronous IO(C++ style)
+void func2()
+{
+    for (int i = 0; i < 20000; i++)
+    {
+        cout << "+SynOut:" << i << endl;
     }
 }
 
 // 异步IO
 // Asynchronous IO
-void func2()
+void func3()
 {
     for (int i = 0; i < 20000; i++)
     {
@@ -38,8 +48,9 @@ void func2()
 // Comparison of speed between asynchronous and synchronous
 int main()
 {
-    auto t1 = timer(func1);// 同步 Synchronous
-    auto t2 = timer(func2);// 异步 Asynchronous
+    auto t1 = timer(func1); // 同步 Synchronous(C)
+    auto t2 = timer(func2); // 同步 Synchronous(C++)
+    auto t3 = timer(func3); // 异步 Asynchronous
 
     // 等待异步执行完成
     // Waiting for asynchronous execution to complete
@@ -48,8 +59,9 @@ int main()
         std::this_thread::sleep_for(20ms);
     }
 
-    std::cout << std::endl;                         //  test:  first         |second
-    std::cout << "t1:" << t1.count() << std::endl;  // Output: 4488000800    |4559587200
-    std::cout << "t2:" << t2.count() << std::endl;  // Output: 7026300       |6014600
+    std::cout << std::endl;                        //   test: first         |second
+    std::cout << "t1:" << t1.count() << std::endl; // Output: 11651293900   |11588594700
+    std::cout << "t2:" << t2.count() << std::endl; // Output: 4619884600    |4771054800
+    std::cout << "t3:" << t3.count() << std::endl; // Output: 6021100       |7002500
     std::cout << std::endl;
 }
