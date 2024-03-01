@@ -11,49 +11,49 @@ using namespace pack_asyncIO;
 TypesafeAsyncOutput &pack_asyncIO::operator<<(TypesafeAsyncOutput &out, short n)
 {
     char s[7];
-    itoa(n, s, 10);
+    _itoa_s(n, s, 10);
     return out << (const char *)s;
 }
 TypesafeAsyncOutput &pack_asyncIO::operator<<(TypesafeAsyncOutput &out, int n)
 {
     char s[12];
-    itoa(n, s, 10);
+    _itoa_s(n, s, 10);
     return out << (const char *)s;
 }
 TypesafeAsyncOutput &pack_asyncIO::operator<<(TypesafeAsyncOutput &out, long n)
 {
     char s[12];
-    itoa(n, s, 10);
+    _itoa_s(n, s, 10);
     return out << (const char *)s;
 }
 TypesafeAsyncOutput &pack_asyncIO::operator<<(TypesafeAsyncOutput &out, long long n)
 {
     char s[21];
-    itoa(n, s, 10);
+    _itoa_s(n, s, 10);
     return out << (const char *)s;
 }
 TypesafeAsyncOutput &pack_asyncIO::operator<<(TypesafeAsyncOutput &out, unsigned short n)
 {
     char s[6];
-    itoa(n, s, 10);
+    _itoa_s(n, s, 10);
     return out << (const char *)s;
 }
 TypesafeAsyncOutput &pack_asyncIO::operator<<(TypesafeAsyncOutput &out, unsigned int n)
 {
     char s[11];
-    itoa(n, s, 10);
+    _itoa_s(n, s, 10);
     return out << (const char *)s;
 }
 TypesafeAsyncOutput &pack_asyncIO::operator<<(TypesafeAsyncOutput &out, unsigned long n)
 {
     char s[11];
-    itoa(n, s, 10);
+    _itoa_s(n, s, 10);
     return out << (const char *)s;
 }
 TypesafeAsyncOutput &pack_asyncIO::operator<<(TypesafeAsyncOutput &out, unsigned long long n)
 {
     char s[20];
-    itoa(n, s, 10);
+    _itoa_s(n, s, 10);
     return out << (const char *)s;
 }
 TypesafeAsyncOutput &pack_asyncIO::operator<<(TypesafeAsyncOutput &out, float n)

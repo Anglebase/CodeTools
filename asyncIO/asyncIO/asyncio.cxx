@@ -70,7 +70,7 @@ const ForwardPack &ForwardPack::operator=(ForwardPack &&it)
 ForwardPack::~ForwardPack()
 {
     *this->rescnt -= 1;
-    if (this->rescnt <= 0)
+    if (*this->rescnt <= 0)
     {
         this->rescnt ? (delete this->rescnt), this->rescnt = nullptr : nullptr;
         this->data ? (delete[] ((char *)this->data)), this->data = nullptr : nullptr;
