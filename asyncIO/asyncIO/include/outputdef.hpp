@@ -7,21 +7,17 @@
 
 #include "typesafeoutput.hxx"
 #include <string>
+#include <sstream>
 
 namespace pack_asyncIO
 {
-
-    TypesafeAsyncOutput &operator<<(TypesafeAsyncOutput &out, short n);
-    TypesafeAsyncOutput &operator<<(TypesafeAsyncOutput &out, int n);
-    TypesafeAsyncOutput &operator<<(TypesafeAsyncOutput &out, long n);
-    TypesafeAsyncOutput &operator<<(TypesafeAsyncOutput &out, long long n);
-    TypesafeAsyncOutput &operator<<(TypesafeAsyncOutput &out, unsigned short n);
-    TypesafeAsyncOutput &operator<<(TypesafeAsyncOutput &out, unsigned int n);
-    TypesafeAsyncOutput &operator<<(TypesafeAsyncOutput &out, unsigned long n);
-    TypesafeAsyncOutput &operator<<(TypesafeAsyncOutput &out, unsigned long long n);
-    TypesafeAsyncOutput &operator<<(TypesafeAsyncOutput &out, float n);
-    TypesafeAsyncOutput &operator<<(TypesafeAsyncOutput &out, double n);
-    TypesafeAsyncOutput &operator<<(TypesafeAsyncOutput &out, long double n);
+    template<class T>
+    TypesafeAsyncOutput &operator<<(TypesafeAsyncOutput &out, T n)
+    {
+        std::ostringstream oss;
+        oss << n;
+        return out << n.str().c_str();
+    }
 
     template <class T>
     TypesafeAsyncOutput &operator<<(TypesafeAsyncOutput &out, T *ptr)
@@ -38,8 +34,6 @@ namespace pack_asyncIO
         }
         return out;
     }
-
-    TypesafeAsyncOutput &operator<<(TypesafeAsyncOutput &out, const std::string &s);
 }
 
 #endif
